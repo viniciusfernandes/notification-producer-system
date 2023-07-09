@@ -1,0 +1,70 @@
+server:
+  port: 8098
+  servlet:
+    context-path: /notification-system
+  error:
+    include-message: 'always'
+    include-binding-errors: 'always'
+    include-exception: 'false'
+
+
+## Values: HASHTABLE, MONGODB
+database:
+    strategy: HASHTABLE
+
+notification:
+  cron: "0/15 * * * * *"
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+swagger-ui:
+  operationsSorter: method
+  path: /swagger.html
+
+spring:
+  profiles:
+    active: local
+
+kafka:
+  bootstrap-servers: localhost:9092
+  topic:
+    groupId: notification
+    notification: topic-advertisement-notifications
+
+redis:
+  host: localhost
+  port: 6379
+  password:
+  cache:
+    exclusion-customer: "exclusion-customer-cache"
+
+---
+spring:
+  profiles:
+    active: docker
+
+redis:
+  host: localhost
+  port: 6379
+  password:
+  cache:
+    exclusion-customer: "exclusion-customer-cache"
+
+kafka:
+  bootstrap-servers: localhost:9092
+  topic:
+    groupId: notification
+    notification: topic-advertisement-notifications
+---
+#spring:
+ # data:
+  #  mongodb:
+   #   host: mongo-server
+    #  port: 27017
+     # database: advertisement-notification
+      #username: admin
+      #password: 1234
+      #authentication-database: admin
+      #auto-index-creation: true
