@@ -1,11 +1,11 @@
 package br.com.mercadolivre.notificationproducersystem;
 
-import br.com.mercadolivre.notificationproducersystem.exception.RequiredFieldsException;
-import br.com.mercadolivre.notificationproducersystem.model.AdvertisementExclusion;
-import br.com.mercadolivre.notificationproducersystem.model.AdvertisementNotification;
-import br.com.mercadolivre.notificationproducersystem.model.repository.AdvertisementExclusionRepository;
-import br.com.mercadolivre.notificationproducersystem.model.repository.AdvertisementNotificationRepository;
-import br.com.mercadolivre.notificationproducersystem.service.AdvertisementNotificationService;
+import br.com.mercadolivre.notificationsystem.exception.RequiredFieldsException;
+import br.com.mercadolivre.notificationsystem.model.AdvertisementExclusion;
+import br.com.mercadolivre.notificationsystem.model.AdvertisementNotification;
+import br.com.mercadolivre.notificationsystem.model.repository.AdvertisementExclusionRepository;
+import br.com.mercadolivre.notificationsystem.model.repository.AdvertisementNotificationRepository;
+import br.com.mercadolivre.notificationsystem.service.AdvertisementNotificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

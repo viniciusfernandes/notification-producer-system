@@ -1,7 +1,7 @@
 server:
-  port: 8098
+  port: 8091
   servlet:
-    context-path: /notification-system
+    context-path: /notification-producer-system
   error:
     include-message: 'always'
     include-binding-errors: 'always'
@@ -13,15 +13,14 @@ database:
     strategy: HASHTABLE
 
 notification:
-  cron: "0/15 * * * * *"
+  cron: "*/5 * * * * *"
 
 springdoc:
   api-docs:
     path: /api-docs
-
-swagger-ui:
-  operationsSorter: method
-  path: /swagger.html
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger.html
 
 spring:
   profiles:
