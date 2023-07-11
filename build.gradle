@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'groovy'
     id 'org.springframework.boot' version '2.7.13'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
@@ -8,7 +9,7 @@ group = 'br.com.mercadolivre'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '11'
+    sourceCompatibility = "17"
 }
 
 repositories {
@@ -31,7 +32,21 @@ dependencies {
     testImplementation 'com.github.tomakehurst:wiremock-jre8:2.31.0'
 }
 
+
+task featureTest(type: JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'io.cucumber.core.cli.Main'
+    args = ['--glue', 'br.com.mercadolivre.notificationproducersystem.steps', 'src/test/resources/features']
+}
+
 tasks.named('test') {
     useJUnitPlatform()
     systemProperty "wiremock.server.port", "8080" // Set the same port used in WireMockConfig.java
 }
+
+tasks.named('featureTest') {
+    systemProperty 'org.slf4j.simpleLogger.defaultLogLevel', 'warn'
+}
+targetCompatibility = JavaVersion.VERSION_17
+

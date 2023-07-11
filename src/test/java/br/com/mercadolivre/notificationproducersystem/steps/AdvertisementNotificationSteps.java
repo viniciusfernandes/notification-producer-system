@@ -1,10 +1,12 @@
-package br.com.mercadolivre.notificationproducersystem.stepdefs;
+package br.com.mercadolivre.notificationproducersystem.steps;
 
 import br.com.mercadolivre.notificationproducersystem.utils.Endpoint;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
+import org.mockito.Mockito;
 
 public class AdvertisementNotificationSteps {
   private Endpoint endpoint;
@@ -14,6 +16,7 @@ public class AdvertisementNotificationSteps {
   @Given("the notification request {string}")
   public void theNotificationRequestRequestsAdvertisementNotificationJson(String requestFile) {
     this.requestFile = requestFile;
+    System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
   }
 
   @When("I {string} this request to the the advertisement notification endpoint")

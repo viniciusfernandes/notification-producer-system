@@ -94,12 +94,12 @@ public class Endpoint {
   public void mock() {
     if (mocked) {
       throw new IllegalStateException(
-          String.format("This endpoint %s:%s was already mocked", method, url));
+          "This endpoint %s:%s was already mocked".formatted(method, url));
     }
     WireMock.stubFor(WireMock.get(WireMock.urlEqualTo(url))
         .willReturn(WireMock.aResponse()
             .withStatus(httpStatus)
-            .withHeader(HttpHeaders.CONTENT_TYPE  , MediaType.APPLICATION_JSON_VALUE)
+            .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
             .withBodyFile("classpath:/requests/" + requestBodyFile)));
 
     mocked = true;
