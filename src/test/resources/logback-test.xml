@@ -3,15 +3,12 @@
  BUT I DONT KNOW HOW TO ENABLE JUST IN ERROR OR INFO LEVELS -->
 
 <configuration>
-
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{dd/MM/yyyy HH:mm:ss.SSS} [%-5level] %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-
-    <root level="ERROR">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
-
 </configuration>
