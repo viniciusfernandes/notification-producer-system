@@ -27,13 +27,13 @@ spring:
     active: local
 
 kafka:
-  bootstrap-servers: localhost:9092
+  bootstrap-servers: kafka-network:29092
   topic:
     groupId: notification
     notification: topic-advertisement-notifications
 
 redis:
-  host: localhost
+  host: redis-network
   port: 6379
   password:
   cache:
@@ -45,14 +45,14 @@ spring:
     active: docker
 
 redis:
-  host: localhost
+  host: redis-network
   port: 6379
   password:
   cache:
     exclusion-customer: "exclusion-customer-cache"
 
 kafka:
-  bootstrap-servers: localhost:9092
+  bootstrap-servers: kafka-network:9092
   topic:
     groupId: notification
     notification: topic-advertisement-notifications

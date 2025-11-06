@@ -1,0 +1,19 @@
+services:
+  notification-producer-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: notification-producer-system:1.0.0
+    container_name: notification-producer-system
+    ports:
+      - "8091:8091"
+    networks:
+      - kafka-network
+      - redis-network
+    depends_on:
+      - kafka
+      - mongo
+      - redis
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    restart: unless-stopped
